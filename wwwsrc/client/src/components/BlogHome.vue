@@ -1,53 +1,49 @@
 <template>
     <div id="blog-home">
-        <div>
-            <button @click="getPosts"></button>
-
-            <div v-for="post in posts" :key="post.id">
-                <h1>Test Blog Page</h1>
-                {{post.body}}
-                <p>{{post.author.email}}</p>
-
-            </div>
+        <h1>{{ page_title }}</h1>
+        <!-- Create v-for and apply a key for Vue. Example is using a combination of the slug and index -->
+        <div v-for="(post,index) in posts" :key="post.slug + '_' + index">
+            <router-link :to="'/blog/' + post.slug">
+                <article class="media">
+                    <figure>
+                        <!-- Bind results using a ':' -->
+                        <!-- Use a v-if/else if their is a featured_image -->
+                        <img v-if="post.featured_image" :src="post.featured_image" alt="">
+                        <img v-else src="http://via.placeholder.com/250x250" alt="">
+                    </figure>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.summary }}</p>
+                </article>
+            </router-link>
         </div>
     </div>
-
-
 </template>
 
 <script>
-    import { butter } from "@/buttercms";
+    import { butter } from '@/buttercms'
     export default {
-        name: "blog-home",
-        mounted() {
-
-            return "getPosts"
-
-        },
+        name: 'blog-home',
         data() {
             return {
-                page_title: "Blog",
-                posts: [],
-                catagories: []
-            };
+                page_title: 'Blog',
+                posts: []
+            }
         },
-
         methods: {
             getPosts() {
-                butter.post
-                    .list({
-                        page: 1,
-                        page_size: 10
-                    })
-                    .then(res => {
-                        console.log(res.data);
-                        this.posts = res.data.data;
-                    });
+                butter.post.list({
+                    page: 1,
+                    page_size: 10
+                }).then((res) => {
+                    // console.log(res.data)
+                    this.posts = res.data.data
+                })
             }
+        },
+        created() {
+            this.getPosts()
         }
-
-
-    };
+    }
 </script>
 
 <style>
