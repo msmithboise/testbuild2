@@ -1,13 +1,12 @@
- CREATE TABLE Cats (
-   id int NOT NULL AUTO_INCREMENT,
-   name VARCHAR(255) NOT NULL,
-   description VARCHAR(255) NOT NULL,
-   price DECIMAL(10,2) NOT NULL,
-   PRIMARY KEY(id)
- );
+--  CREATE TABLE Cats (
+--    id int NOT NULL AUTO_INCREMENT,
+--    name VARCHAR(255) NOT NULL,
+--    description VARCHAR(255) NOT NULL,
+--    PRIMARY KEY(id)
+--  );
 
--- -- INSERT INTO frenchfries (name, description, price) 
--- -- VALUES ("Animal Style Fries", "Fries smothered by all things unhealthy!", 11.99);
+INSERT INTO cats (name, description) 
+VALUES ("Grey Cat", "Super fuzzy!");
 
 -- -- SELECT * FROM frenchfries;
 
@@ -50,7 +49,22 @@
 -- FOREIGN KEY(burgerId)
 -- REFERENCES (burgerId)
 -- ON DELETE CASCADE,
+-- );
+
+
+-- DROP TABLE cats;
 
 
 
+-- CREATE TABLE keeps (
+--     id int NOT NULL AUTO_INCREMENT,
+--     name VARCHAR(20) NOT NULL,
+--     description VARCHAR(255) NOT NULL,
+--     imgUrl VARCHAR(255) NOT NULL,
+--     userId VARCHAR(255) NOT NULL,
+--     INDEX userId (userId),
+--     FOREIGN KEY (userId)
+--         REFERENCES users(id)
+--         ON DELETE CASCADE,  
+--     PRIMARY KEY (id)
 -- );
