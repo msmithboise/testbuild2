@@ -35,7 +35,7 @@ namespace testbuild2.Repositories
 
         // CREATE CAT
 
-        public Cat Create(Cat Cat)
+        public Cat Create(Cat cat)
         {
             {
                 int id = _db.ExecuteScalar<int>(@"
