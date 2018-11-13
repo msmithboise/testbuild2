@@ -13,9 +13,9 @@ namespace testbuild2.Models
         [MinLength(6)]
 
         public string Name { get; set; }
-        [Required]
-        [MaxLength(6)]
 
+        [Required]
+        [MaxLength(255)]
         public string Description { get; set; }
 
         public Cat() { }

@@ -5,7 +5,7 @@ using Dapper;
 using testbuild2.Models;
 
 
-namespace cat.Repositories
+namespace testbuild2.Repositories
 {
     public class CatsRepository
     {

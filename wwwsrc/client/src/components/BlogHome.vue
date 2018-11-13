@@ -20,30 +20,34 @@
 </template>
 
 <script>
-    import { butter } from '@/buttercms'
-    export default {
-        name: 'blog-home',
-        data() {
-            return {
-                page_title: 'Blog',
-                posts: []
-            }
-        },
-        methods: {
-            getPosts() {
-                butter.post.list({
-                    page: 1,
-                    page_size: 10
-                }).then((res) => {
-                    // console.log(res.data)
-                    this.posts = res.data.data
-                })
-            }
-        },
-        created() {
-            this.getPosts()
-        }
+import { butter } from "@/buttercms";
+export default {
+  name: "blog-home",
+  data() {
+    return {
+      page_title: "Blog",
+      posts: []
+    };
+  },
+  methods: {
+    getPosts() {
+      butter.post
+        .list({
+          page: 1,
+          page_size: 10
+        })
+        .then(res => {
+          // console.log(res.data)
+          this.posts = res.data.data;
+          debugger;
+          console.log(res.data);
+        });
     }
+  },
+  created() {
+    this.getPosts();
+  }
+};
 </script>
 
 <style>
