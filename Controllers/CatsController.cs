@@ -23,15 +23,15 @@ namespace testbuild2.Controllers
             return _repo.GetAll();
         }
 
-        [Authorize]
+
         [HttpPost]
         public Cat Post([FromBody] Cat cat)
         {
-            if (ModelState.IsValid)
-            {
-                cat = new Cat(cat.Name, cat.Description);
-                return _repo.Create(cat);
-            }
+
+
+            cat = new Cat(cat.Name, cat.Description);
+            return _repo.Create(cat);
+
             throw new Exception("INVALID CAT");
         }
 

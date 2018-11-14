@@ -5,8 +5,8 @@
 --    PRIMARY KEY(id)
 --  );
 
-INSERT INTO cats (name, description) 
-VALUES ("Grey Cat", "Super fuzzy!");
+-- INSERT INTO cats (name, description) 
+-- VALUES ("Grey Cat", "Super fuzzy!");
 
 -- -- SELECT * FROM frenchfries;
 
